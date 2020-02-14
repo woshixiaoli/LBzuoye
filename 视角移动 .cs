@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class 视角移动 : MonoBehaviour {
+public class 小波波 : MonoBehaviour {
 
     Camera mCamera;
-    public enum RotationAxes
+    public enum BB
     {
         MouseXAndY = 0,
         MouseX = 1,
@@ -18,22 +18,13 @@ public class 视角移动 : MonoBehaviour {
     public float maxmumVert = 60f;
 
     private float _rotationX = 0;
-    // Use this for initialization
-
-
-
-
-        
-
-
+    
 
     void Start () {
-        
-
+      
        
     }
 	
-	// Update is called once per frame
 	void Update ()
     {
 
@@ -52,11 +43,11 @@ public class 视角移动 : MonoBehaviour {
     {
     if (axes == RotationAxes.MouseX)
     {
-        transform.Rotate(0, Input.GetAxis("Mouse X") * sensitivityHor, 0);
+        transform.Rotate(0, Input.GetAxis("M2") * sensitivityHor, 0);
     }
     else if (axes == RotationAxes.MouseY)
     {
-        _rotationX = _rotationX - Input.GetAxis("Mouse Y") * sensitivityVert;
+        _rotationX = _rotationX - Input.GetAxis("Mo3Y") * sensitivityVert;
         _rotationX = Mathf.Clamp(_rotationX, minmumVert, maxmumVert);
 
         float rotationY = transform.localEulerAngles.y;
@@ -65,10 +56,10 @@ public class 视角移动 : MonoBehaviour {
     }
     else
     {
-        _rotationX -= Input.GetAxis("Mouse Y") * sensitivityVert;
+        _rotationX -= Input.GetAxis("M5") * sensitivityVert;
         _rotationX = Mathf.Clamp(_rotationX, minmumVert, maxmumVert);
 
-        float delta = Input.GetAxis("Mouse X") * sensitivityHor;
+        float delta = Input.GetAxis("M5) * sensitivityHor;
         float rotationY = transform.localEulerAngles.y + delta;
 
         transform.localEulerAngles = new Vector3(_rotationX, rotationY, 0);
